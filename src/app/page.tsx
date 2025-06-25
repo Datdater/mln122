@@ -3,112 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const sections = [
-  {
-    key: "origin",
-    title: "Nguồn gốc của giá trị thặng dư",
-    icon: "/file.svg",
-    bg: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=900&q=80", // old books
-    summary: `Surplus value, a cornerstone of Marx's critique of political economy, refers to the value produced by labor over and above the cost of labor power. It is the source of profit in capitalist systems, arising from the exploitation of workers.`,
-    more: `Marx argued that capitalists purchase labor power at its value (wages) but extract more value during production, appropriating the difference as surplus value. This process is fundamental to understanding capitalist accumulation and class relations.`
-  },
-  {
-    key: "labor-power",
-    title: "Sức lao động như một hàng hóa",
-    icon: "/window.svg",
-    bg: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80", // factory
-    summary: `In capitalism, labor power is treated as a commodity. Workers sell their capacity to work in exchange for wages, but the value they create often exceeds what they are paid.`,
-    more: `The distinction between labor and labor power is crucial. Labor power is the worker's ability to work, which is sold to the capitalist. The actual labor performed generates new value, part of which is appropriated as surplus value.`
-  },
-  {
-    key: "production-process",
-    title: "Quá trình sản xuất giá trị thặng dư",
-    icon: "/vercel.svg",
-    bg: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=900&q=80", // industry
-    summary: `Surplus value is produced in the sphere of production, where workers create more value than the equivalent of their wages. This excess is realized as profit by the capitalist.`,
-    more: `The working day is divided into necessary labor (to reproduce the worker's wage) and surplus labor (unpaid labor that creates surplus value). The extension of the working day or intensification of labor increases surplus value.`
-  },
-  {
-    key: "capital-types",
-    title: "Vốn hằng số và vốn biến đổi",
-    icon: "/globe.svg",
-    bg: "https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=900&q=80", // machinery
-    summary: `Marx distinguishes between constant capital (machinery, materials) and variable capital (labor power). Only variable capital produces surplus value.`,
-    more: `Constant capital transfers its value to the final product, while variable capital (wages) is the source of new value. The exploitation of labor is thus central to surplus value production.`
-  },
-  {
-    key: "wages",
-    title: "Lương",
-    icon: "/file.svg",
-    bg: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80", // coins
-    summary: `Wages represent the price of labor power, not labor itself. They are determined by the cost of subsistence and reproduction of the worker.`,
-    more: `The wage form obscures the exploitation inherent in capitalism, making it appear as if workers are paid for all their labor, when in fact only necessary labor is compensated.`
-  },
-  {
-    key: "circulation",
-    title: "Vòng chu chuyển của vốn",
-    icon: "/window.svg",
-    bg: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=900&q=80", // abstract
-    summary: `Capital circulates through stages: money, commodities, production, and back to money with added surplus value. This cycle drives capitalist accumulation.`,
-    more: `The circulation of capital links production and exchange, ensuring the continuous expansion of value. Interruptions in this cycle can lead to crises and instability in the market economy.`
-  }
-];
-
-function Expandable({ summary, more }: { summary: string; more: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <p>{summary}</p>
-      <button
-        className="mt-2 text-[color:var(--gold)] underline font-bold text-sm"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-      >
-        {open ? "Hide" : "Explore More"}
-      </button>
-      {open && (
-        <div className="mt-2 text-[color:var(--grey)] text-sm border-l-4 border-[color:var(--gold)] pl-4 bg-white/70 p-2 rounded shadow-inner">
-          {more}
-        </div>
-      )}
-    </div>
-  );
-}
-
-const partners = [
-  { name: "Marx", logo: "/file.svg" },
-  { name: "Engels", logo: "/window.svg" },
-  { name: "KnowledgeLab", logo: "/globe.svg" },
-  { name: "TheoryX", logo: "/vercel.svg" },
-];
-
-const keyConcepts = [
-  {
-    key: "labor-power",
-    title: "Labor Power as Commodity",
-    icon: "/window.svg",
-    img: "/background.jpg",
-    desc: `Labor power is sold as a commodity in the market. Workers exchange their capacity to work for wages, but the value they create often exceeds what they are paid.`,
-    reverse: false,
-  },
-  {
-    key: "capital-types",
-    title: "Constant & Variable Capital",
-    icon: "/globe.svg",
-    img: "/background.jpg",
-    desc: `Constant capital (machinery, materials) transfers value, while variable capital (labor power) creates new value and surplus.`,
-    reverse: true,
-  },
-  {
-    key: "capital-circulation",
-    title: "Capital Circulation",
-    icon: "/vercel.svg",
-    img: "/background.jpg",
-    desc: `Capital moves through stages: money, commodities, production, and returns as money with surplus value, driving accumulation.`,
-    reverse: false,
-  },
-];
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-[color:var(--background)] text-[color:var(--charcoal)] font-serif">
@@ -215,7 +109,7 @@ export default function Home() {
             <li><b>Thuộc tính đặc biệt của hàng hóa Sức lao động:</b>
               <ul className="list-[circle] pl-6 mt-1 text-base">
                 <li><b>Giá trị của sức lao động:</b> Được quyết định bởi chi phí để tái sản xuất ra sức lao động (ăn uống, ở, học hành, nuôi con...).</li>
-                <li><b>Giá trị sử dụng của sức lao động:</b> <span className="text-[color:var(--gold)] font-bold">Là khả năng tạo ra một giá trị mới lớn hơn giá trị bản thân nó.</span> <span className="italic">Đây chính là điều đặc biệt, là 'bí mật' của giá trị thặng dư.</span></li>
+                <li><b>Giá trị sử dụng của sức lao động:</b> <span className="text-[color:var(--gold)] font-bold">Là khả năng tạo ra một giá trị mới lớn hơn giá trị bản thân nó.</span> <span className="italic">Đây chính là điều đặc biệt, là &apos;bí mật&apos; của giá trị thặng dư.</span></li>
               </ul>
             </li>
           </ul>
@@ -374,43 +268,6 @@ export default function Home() {
           <div className="text-xs text-gray-500 mt-2">Nguồn: Dự thảo mức lương tối thiểu vùng năm 2025</div>
         </div>
       </motion.section>
-
-      {/* Partner Section */}
-      {/* <section className="bg-white/80 py-10">
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <h3 className="text-xl font-bold mb-6 text-[color:var(--charcoal)]">Knowledge Partners</h3>
-          <div className="flex flex-wrap justify-center gap-10 items-center">
-            {partners.map((p) => (
-              <div key={p.name} className="grayscale opacity-70 hover:opacity-100 transition">
-                <Image src={p.logo} alt={p.name} width={80} height={40} />
-                <div className="text-xs text-center mt-2 font-semibold tracking-wide">{p.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Key Concepts Section */}
-      {/* <section className="max-w-5xl mx-auto py-16 px-4 flex flex-col gap-16">
-        <h3 className="text-2xl font-bold text-center mb-8 text-[color:var(--brown)]">Khái niệm chính</h3>
-        {keyConcepts.map((concept, idx) => (
-          <div
-            key={concept.key}
-            className={`flex flex-col ${concept.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8`}
-          >
-            <div className="flex-1 min-w-[220px] flex flex-col items-center">
-              <Image src={concept.img} alt={concept.title} width={400} height={260} className="rounded-lg shadow-md object-cover" />
-              <div className="mt-4 bg-[color:var(--gold)]/20 rounded-full p-3">
-                <Image src={concept.icon} alt="icon" width={36} height={36} />
-              </div>
-            </div>
-            <div className="flex-1 min-w-[220px]">
-              <h4 className="text-xl font-bold mb-2 text-[color:var(--brown)]">{concept.title}</h4>
-              <p className="text-md text-[color:var(--charcoal)]">{concept.desc}</p>
-            </div>
-          </div>
-        ))}
-      </section> */}
 
       {/* Final Call-to-Action Section */}
       <motion.section
