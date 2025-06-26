@@ -401,12 +401,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 1 - Chương 1 */}
+            {/* Trang 1 - Phần 1 */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 1: Nguồn gốc của Giá trị Thặng dư
+                    Phần 1: Nguồn gốc của Giá trị Thặng dư
                   </h2>
                   <p className="text-base text-[color:var(--charcoal)] leading-relaxed mb-4">
                     Giá trị thặng dư là phần giá trị mới được tạo ra vượt quá giá trị sức lao động, được tạo ra trong quá trình sản xuất nhưng không được trả công cho người lao động.
@@ -453,12 +453,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 2 - Chương 2 */}
+            {/* Trang 2 - Phần 2 */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 2: Sức Lao động - Hàng hóa Đặc biệt
+                    Phần 2: Sức Lao động - Hàng hóa Đặc biệt
                   </h2>
                   
                   <div className="space-y-4">
@@ -518,12 +518,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 3 - Chương 3 */}
+            {/* Trang 3 - Phần 3 */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 3: Quá trình Sản xuất Giá trị Thặng dư
+                    Phần 3: Quá trình Sản xuất Giá trị Thặng dư
                   </h2>
                   
                   <div className="space-y-4">
@@ -582,12 +582,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 4 - Chương 3 (tiếp) */}
+            {/* Trang 4 - Phần 3 (tiếp) */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 3: Quá trình Sản xuất Giá trị Thặng dư (tiếp)
+                    Phần 3: Quá trình Sản xuất Giá trị Thặng dư (tiếp)
                   </h2>
                   
                   <div className="space-y-4">
@@ -646,12 +646,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 5 - Chương 4 */}
+            {/* Trang 5 - Phần 4 */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 4: Bản chất của Giá trị thặng dư
+                    Phần 4: Bản chất của Giá trị thặng dư
                   </h2>
                   
                   <div className="space-y-4">
@@ -704,12 +704,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Trang 6 - Chương 4 (tiếp) */}
+            {/* Trang 6 - Phần 4 (tiếp) */}
             <div className="page bg-white">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-[color:var(--brown)] mb-4 border-b-2 border-[color:var(--gold)] pb-2">
-                    Chương 4: Bản chất của Giá trị thặng dư (tiếp)
+                    Phần 4: Bản chất của Giá trị thặng dư (tiếp)
                   </h2>
                   
                   <div className="space-y-4">
