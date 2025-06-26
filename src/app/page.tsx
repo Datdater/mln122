@@ -276,7 +276,7 @@ export default function Home() {
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-[color:var(--brown)]">Trả lời câu hỏi</h2>
         <p className="mb-6 text-lg text-[color:var(--charcoal)]"> Làm 8 tiếng nhưng sống không đủ: Giá trị thặng dư ở đâu?</p>
-        <div className="w-full aspect-video max-w-2xl rounded-xl overflow-hidden shadow-lg mb-4">
+        {/* <div className="w-full aspect-video max-w-2xl rounded-xl overflow-hidden shadow-lg mb-4">
           <iframe
             width="100%"
             height="100%"
@@ -294,7 +294,7 @@ export default function Home() {
           className="inline-block mt-2 px-6 py-2 bg-[color:var(--gold)] text-[color:var(--charcoal)] font-bold rounded-full shadow hover:bg-yellow-400 transition"
         >
           Xem video đầy đủ trên YouTube
-        </a>
+        </a> */}
 
         {/* Bảng mức lương tối thiểu vùng 2025 */}
         <div className="w-full overflow-x-auto mt-10">
