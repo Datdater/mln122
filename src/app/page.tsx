@@ -3,6 +3,31 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import HTMLFlipBook from 'react-pageflip';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  LineController,
+  Legend,
+  Tooltip,
+  ChartData,
+  ChartOptions,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  LineController,
+  Legend,
+  Tooltip
+);
 
 // Component hiệu ứng vàng rơi
 const GoldParticles = () => {
@@ -64,11 +89,220 @@ const GoldParticles = () => {
   );
 };
 
+// Component Navigation Buttons
+const NavigationButtons = ({ currentSection, totalSections, onNext, onPrev }: {
+  currentSection: number;
+  totalSections: number;
+  onNext: () => void;
+  onPrev: () => void;
+}) => {
+  return (
+    <div className="fixed bottom-8 right-8 z-50 flex gap-4">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onPrev}
+        disabled={currentSection === 0}
+        className={`px-6 py-3 rounded-full shadow-lg font-bold transition-all ${
+          currentSection === 0
+            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            : 'bg-[color:var(--brown)] text-white hover:bg-[color:var(--charcoal)]'
+        }`}
+      >
+        ← Trước
+      </motion.button>
+      
+      <div className="flex items-center px-4 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
+        <span className="text-[color:var(--brown)] font-bold">
+          {currentSection + 1} / {totalSections}
+        </span>
+      </div>
+      
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onNext}
+        disabled={currentSection === totalSections - 1}
+        className={`px-6 py-3 rounded-full shadow-lg font-bold transition-all ${
+          currentSection === totalSections - 1
+            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            : 'bg-[color:var(--gold)] text-[color:var(--charcoal)] hover:bg-yellow-400'
+        }`}
+      >
+        Tiếp →
+      </motion.button>
+    </div>
+  );
+};
+
 export default function Home() {
+  const [currentSection, setCurrentSection] = useState(0);
+  const [isManualScrolling, setIsManualScrolling] = useState(false);
+  
+  const sections = [
+    // Section 0: Hero Section
+    {
+      id: 'hero',
+      title: 'Hero'
+    },
+    
+    // Section 1: Introduction Section
+    {
+      id: 'introduction',
+      title: 'Nguồn gốc'
+    },
+    
+    // Section 2: Labor Power as Commodity Section
+    {
+      id: 'labor-power',
+      title: 'Sức lao động'
+    },
+    
+    // Section 3: Production Process Section
+    {
+      id: 'production-process',
+      title: 'Quá trình sản xuất'
+    },
+    
+    // Section 4: Question Answer Section
+    {
+      id: 'question-answer',
+      title: 'Trả lời câu hỏi'
+    },
+    {
+      id: 'summary',
+      title: 'Tóm tắt toàn bộ Lý thuyết Giá trị Thặng dư'
+    }
+  ];
+
+  const handleNext = () => {
+    if (currentSection < sections.length - 1) {
+      const nextSection = currentSection + 1;
+      setCurrentSection(nextSection);
+      setIsManualScrolling(true);
+      const nextSectionElement = document.getElementById(sections[nextSection].id);
+      if (nextSectionElement) {
+        nextSectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => setIsManualScrolling(false), 600);
+      } else {
+        setIsManualScrolling(false);
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentSection > 0) {
+      const prevSection = currentSection - 1;
+      setCurrentSection(prevSection);
+      setIsManualScrolling(true);
+      const prevSectionElement = document.getElementById(sections[prevSection].id);
+      if (prevSectionElement) {
+        prevSectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => setIsManualScrolling(false), 600);
+      } else {
+        setIsManualScrolling(false);
+      }
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight' || event.key === ' ') {
+        event.preventDefault();
+        handleNext();
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        handlePrev();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [currentSection]);
+
+  // Update current section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isManualScrolling) return;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i].id);
+        if (element && element.offsetTop <= scrollPosition) {
+          setCurrentSection(i);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isManualScrolling]);
+
+  const chartData: ChartData<'bar'> = {
+    labels: [
+      '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'
+    ],
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Năng suất lao động (triệu đồng/người)',
+        data: [55.8, 70, 78.8, 85.2, 93.1, 97.7, 105.7, 117.2, 129.1, 141, 150.1, 173, 188.7, 199.3, 221.9],
+        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+        borderRadius: 6,
+        yAxisID: 'y',
+      },
+      {
+        type: 'bar',
+        label: 'Tỷ lệ lao động qua đào tạo (%)',
+        data: [14.6, 15.4, 16.5, 17.9, 18.3, 20.1, 20.5, 21.3, 21.9, 22.6, 25, 26.1, 26.3, 27.1, 28.3],
+        borderColor: 'orange',
+        backgroundColor: 'orange',
+        yAxisID: 'y1',
+        order: 2,
+      }
+    ]
+  };
+
+  const chartOptions: ChartOptions<'bar'> = {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      title: {
+        display: true,
+        text: 'Năng suất lao động và tỷ lệ lao động qua đào tạo ở Việt Nam (2010-2024)',
+        font: { size: 18 }
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        position: 'left',
+        title: { display: true, text: 'Triệu đồng/người' }
+      },
+      y1: {
+        type: 'linear',
+        position: 'right',
+        grid: { drawOnChartArea: false },
+        title: { display: true, text: 'Tỷ lệ (%)' },
+        min: 0,
+        max: 30
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[color:var(--background)] text-[color:var(--charcoal)] font-serif">
       {/* Hiệu ứng vàng rơi */}
       <GoldParticles />
+
+      {/* Navigation Buttons */}
+      <NavigationButtons
+        currentSection={currentSection}
+        totalSections={sections.length}
+        onNext={handleNext}
+        onPrev={handlePrev}
+      />
 
       {/* Hero Section */}
       <motion.section
@@ -76,6 +310,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
+        id="hero"
         className="w-full h-[60vh] min-h-[1000px] flex flex-col items-center justify-center text-center relative"
         style={{
           backgroundImage:
@@ -113,11 +348,11 @@ export default function Home() {
         <div className="text-center mb-6">
           <h2 className="text-xl sm:text-2xl font-bold text-[color:var(--brown)]">Nguồn gốc của giá trị thặng dư</h2>
           <p className="text-lg text-[color:var(--charcoal)]">
-            Là toàn bộ năng lực thể chất, tinh thần tồn tại trong cơ thể người sống để người ta vận dụng sản xuất ra giá trị sử dụng          </p>
+            Là toàn bộ năng lực thể chất, tinh thần tồn tại trong cơ thể người sống để người ta vận dụng sản xuất ra giá trị sử dụng
+          </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
           <div className="flex flex-row gap-8 flex-1 justify-center w-full">
-
             {/* Ảnh 1 */}
             <div className="flex flex-col items-center">
               <Image
@@ -145,10 +380,8 @@ export default function Home() {
                 Nhà máy thời công nghiệp - Nơi khai sinh giá trị thặng dư
               </p>
             </div>
-
           </div>
         </div>
-
       </motion.section>
 
       {/* Labor Power as Commodity Section */}
@@ -157,9 +390,9 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         viewport={{ once: true, amount: 0.2 }}
+        id="labor-power"
         className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 py-16 px-4"
       >
-
         <div className="flex-1 min-w-[250px]">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-[color:var(--brown)]">Hàng hóa Sức Lao động – Chìa khóa của Giá trị Thặng dư</h2>
           <ul className="list-disc pl-5 space-y-2 text-lg text-[color:var(--charcoal)]">
@@ -189,11 +422,13 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Production Process Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         viewport={{ once: true, amount: 0.2 }}
+        id="production-process"
         className="max-w-5xl mx-auto py-16 px-4"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-10 text-[color:var(--brown)] text-center">
@@ -266,37 +501,24 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Section trả lời câu hỏi với video */}
+      {/* Question Answer Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
         viewport={{ once: true, amount: 0.2 }}
+        id="question-answer"
         className="max-w-3xl mx-auto py-16 px-4 flex flex-col items-center text-center"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-[color:var(--brown)]">Trả lời câu hỏi</h2>
         <p className="mb-6 text-lg text-[color:var(--charcoal)]"> Làm 8 tiếng nhưng sống không đủ: Giá trị thặng dư ở đâu?</p>
-        {/* <div className="w-full aspect-video max-w-2xl rounded-xl overflow-hidden shadow-lg mb-4">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/w3m-TF0qCxc"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
-        <a
-          href="https://www.youtube.com/watch?v=w3m-TF0qCxc&feature=youtu.be"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-2 px-6 py-2 bg-[color:var(--gold)] text-[color:var(--charcoal)] font-bold rounded-full shadow hover:bg-yellow-400 transition"
-        >
-          Xem video đầy đủ trên YouTube
-        </a> */}
-
+        
         {/* Bảng mức lương tối thiểu vùng 2025 */}
+        <div className="w-full bg-white rounded-xl shadow-lg p-6 mb-8">
+          <Bar data={chartData} options={chartOptions} />
+          <div className="text-xs text-gray-500 mt-2 text-right">Nguồn: Cục Thống kê</div>
+        </div>
+
         <div className="w-full overflow-x-auto mt-10">
           <table className="min-w-[600px] w-full border border-gray-300 rounded-xl overflow-hidden shadow-lg bg-white">
             <thead>
@@ -339,6 +561,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
         viewport={{ once: true, amount: 0.2 }}
+        id="summary"
         className="max-w-6xl mx-auto py-16 px-4"
       >
         <div className="text-center mb-12">
@@ -386,18 +609,6 @@ export default function Home() {
                   <div className="w-32 h-1 bg-[color:var(--brown)] mx-auto mb-4"></div>
                   <p className="text-xl text-[color:var(--brown)] italic">Lý thuyết kinh tế chính trị</p>
                 </div>
-                {/* <div className="mt-8">
-                  <Image
-                    src="https://hair-salon-fpt.io.vn/uploads/1a398d1c-8aad-4ac6-b439-0332546b28e2_Gemini_Generated_Image_9fofra9fofra9fof.jpeg"
-                    alt="Karl Marx"
-                    width={200}
-                    height={200}
-                    className="rounded-full border-4 border-[color:var(--brown)] shadow-lg"
-                  />
-                  <p className="mt-4 text-sm text-[color:var(--charcoal)] font-medium">
-                    Karl Marx - Nhà tư tưởng vĩ đại
-                  </p>
-                </div> */}
               </div>
             </div>
 
@@ -629,13 +840,10 @@ export default function Home() {
                     {/* Công thức */}
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <h3 className="font-bold text-[color:var(--brown)] mb-2">Công thức:</h3>
-                      <div className="   text-center">
+                      <div className="text-center">
                         <p className="text-lg font-bold text-[color:var(--brown)]">
                           m = Giá trị mới - Giá trị sức lao động
                         </p>
-                        {/* <p className="text-sm text-gray-600 mt-1">
-                          (m: giá trị thặng dư)
-                        </p> */}
                       </div>
                     </div>
                   </div>
@@ -795,9 +1003,6 @@ export default function Home() {
                   Hy vọng bạn đã hiểu rõ hơn về lý thuyết giá trị thặng dư và tác động của nó đến nền kinh tế hiện đại.
                 </p>
                 <div className="w-24 h-1 bg-[color:var(--gold)] mx-auto mb-4"></div>
-                {/* <p className="text-sm italic">
-                  Tư bản không tạo ra giá trị thặng dư, mà chỉ chiếm đoạt nó<br />
-                </p> */}
               </div>
             </div>
           </HTMLFlipBook>
