@@ -422,7 +422,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="font-semibold">Lưu thông tư bản:</p>
-                          <p className="text-center bg-white p-2 rounded border">T – H – T'</p>
+                          <p className="text-center bg-white p-2 rounded border">T – H – T&apos;</p>
                           <p className="text-xs text-gray-600 mt-1">Mục đích: Giá trị lớn hơn</p>
                         </div>
                       </div>
@@ -432,7 +432,7 @@ export default function Home() {
                       <h3 className="font-bold text-[color:var(--brown)] mb-2">Định nghĩa quan trọng:</h3>
                       <ul className="text-sm space-y-2">
                         <li><strong>Tư bản:</strong> Là giá trị mang lại giá trị thặng dư</li>
-                        <li><strong>Giá trị thặng dư:</strong> Là phần tăng thêm (T' = T + t, với t ≥ 0)</li>
+                        <li><strong>Giá trị thặng dư:</strong> Là phần tăng thêm (T&apos; = T + t, với t ≥ 0)</li>
                         <li><strong>Nguồn gốc:</strong> Không phải từ lưu thông mà từ quá trình sản xuất</li>
                       </ul>
                     </div>
@@ -466,7 +466,7 @@ export default function Home() {
                     <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
                       <h3 className="font-bold text-[color:var(--brown)] mb-2">Định nghĩa:</h3>
                       <p className="text-sm italic text-gray-700 mb-2">
-                        "Sức lao động là toàn bộ những năng lực thể chất và tinh thần tồn tại trong cơ thể con người đang sống."
+                        &quot;Sức lao động là toàn bộ những năng lực thể chất và tinh thần tồn tại trong cơ thể con người đang sống.&quot;
                       </p>
                       <p className="text-xs text-gray-600">- C. Mác</p>
                     </div>
@@ -680,7 +680,7 @@ export default function Home() {
 
                     {/* Tỷ suất giá trị thặng dư */}
                     <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                      <h3 className="font-bold text-[color:var(--brown)] mb-3">Tỷ suất giá trị thặng dư (m'):</h3>
+                      <h3 className="font-bold text-[color:var(--brown)] mb-3">Tỷ suất giá trị thặng dư (m&apos;):</h3>
                       <div className="space-y-3">
                         <div className="bg-white p-3 rounded border shadow-sm">
                           <h4 className="font-semibold text-[color:var(--brown)] mb-2">Định nghĩa:</h4>
@@ -688,10 +688,10 @@ export default function Home() {
                         </div>
                         <div className="bg-white p-3 rounded border border-[color:var(--gold)] shadow-sm text-center">
                           <p className="text-lg font-bold text-[color:var(--brown)]">
-                            m' = (m/v) × 100%
+                            m&apos; = (m/v) × 100%
                           </p>
                           <p className="text-xs text-gray-600 mt-1">
-                            Hoặc: m' = (t'/t) × 100%
+                            Hoặc: m&apos; = (t&apos;/t) × 100%
                           </p>
                         </div>
                       </div>
@@ -723,7 +723,7 @@ export default function Home() {
                         </div>
                         <div className="bg-white p-3 rounded border border-[color:var(--gold)] shadow-sm text-center">
                           <p className="text-lg font-bold text-[color:var(--brown)]">
-                            M = m' × V
+                            M = m&apos; × V
                           </p>
                           <p className="text-xs text-gray-600 mt-1">
                             (V: tổng tư bản khả biến)
@@ -737,7 +737,7 @@ export default function Home() {
                       <h3 className="font-bold text-[color:var(--brown)] mb-3">Ý nghĩa:</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div className="bg-white p-3 rounded border shadow-sm">
-                          <h4 className="font-semibold text-[color:var(--brown)] mb-2">Tỷ suất (m'):</h4>
+                          <h4 className="font-semibold text-[color:var(--brown)] mb-2">Tỷ suất (m&apos;):</h4>
                           <p className="text-xs">Phản ánh trình độ khai thác sức lao động làm thuê</p>
                         </div>
                         <div className="bg-white p-3 rounded border shadow-sm">
@@ -762,17 +762,17 @@ export default function Home() {
                           <tbody>
                             <tr>
                               <td className="p-2 border font-semibold">Tỷ suất giá trị thặng dư</td>
-                              <td className="p-2 border text-center">m' = (m/v) × 100%</td>
+                              <td className="p-2 border text-center">m&apos; = (m/v) × 100%</td>
                               <td className="p-2 border">Tỷ lệ giữa giá trị thặng dư và tư bản khả biến</td>
                             </tr>
                             <tr>
                               <td className="p-2 border font-semibold">Tỷ suất (theo thời gian)</td>
-                              <td className="p-2 border text-center">m' = (t'/t) × 100%</td>
+                              <td className="p-2 border text-center">m&apos; = (t&apos;/t) × 100%</td>
                               <td className="p-2 border">Tỷ lệ giữa thời gian lao động thặng dư và tất yếu</td>
                             </tr>
                             <tr>
                               <td className="p-2 border font-semibold">Khối lượng giá trị thặng dư</td>
-                              <td className="p-2 border text-center">M = m' × V</td>
+                              <td className="p-2 border text-center">M = m&apos; × V</td>
                               <td className="p-2 border">Tổng giá trị thặng dư thu được từ tổng tư bản khả biến</td>
                             </tr>
                           </tbody>
