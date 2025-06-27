@@ -403,7 +403,7 @@ export default function Home() {
             <li><b>Tại sao sức lao động trở thành hàng hóa?</b>
               <ul className="list-[circle] pl-6 mt-1 text-base">
                 <li>Người lao động tự do về thân thể.</li>
-                <li>Người lao động không có tư liệu sản xuất để tự làm ra sản phẩm không có máy chủ "không có bản quyền phần mềm, không có công ty để phân phối sản phẩm phần mềm của riêng mình".</li>
+                <li>Người lao động không có tư liệu sản xuất để tự làm ra sản phẩm không có máy chủ &quot;không có bản quyền phần mềm, không có công ty để phân phối sản phẩm phần mềm của riêng mình&quot;.</li>
               </ul>
             </li>
             <li><b>Thuộc tính đặc biệt của hàng hóa Sức lao động:</b>
