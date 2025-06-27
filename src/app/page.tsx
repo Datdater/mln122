@@ -164,7 +164,13 @@ export default function Home() {
       title: 'Quá trình sản xuất'
     },
     
-    // Section 4: Question Answer Section
+    // Section 4: Nature of Surplus Value Section
+    {
+      id: 'nature-surplus-value',
+      title: 'Bản chất của giá trị thặng dư'
+    },
+    
+    // Section 5: Question Answer Section
     {
       id: 'question-answer',
       title: 'Trả lời câu hỏi'
@@ -321,7 +327,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/50" aria-hidden />
         <div className="relative z-10 flex flex-col items-center justify-center h-full">
-          <h1 className="text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-widest drop-shadow-lg mb-4" style={{ fontFamily: 'Merriweather, serif' }}>
+          <h1 className="text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-widest drop-shadow-lg mb-4">
             GIÁ TRỊ THẶNG DƯ
           </h1>
           <p className="text-lg sm:text-2xl text-white/90 max-w-2xl mb-8 drop-shadow">
@@ -346,10 +352,7 @@ export default function Home() {
         className="max-w-5xl mx-auto py-16 px-4"
       >
         <div className="text-center mb-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-[color:var(--brown)]">Nguồn gốc của giá trị thặng dư</h2>
-          <p className="text-lg text-[color:var(--charcoal)]">
-            Là toàn bộ năng lực thể chất, tinh thần tồn tại trong cơ thể người sống để người ta vận dụng sản xuất ra giá trị sử dụng
-          </p>
+          <h2 className="text-xl sm:text-2xl font-bold text-[color:var(--brown)]">Tiền trong lưu thông hàng hóa</h2>
         </div>
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
           <div className="flex flex-row gap-8 flex-1 justify-center w-full">
@@ -360,10 +363,10 @@ export default function Home() {
                 alt="Ảnh phụ Marx"
                 width={500}
                 height={500}
-                className="rounded-full shadow-2xl object-cover border-4 border-[color:var(--gold)] bg-white"
+                className="rounded-xl shadow-2xl object-cover border-4 border-[color:var(--gold)] bg-white"
               />
               <p className="mt-2 text-sm text-center text-[color:var(--charcoal)] font-medium">
-                Karl Marx - Nhà tư tưởng về giá trị thặng dư
+                Lưu thông trong hàng hóa giản đơn
               </p>
             </div>
 
@@ -374,10 +377,10 @@ export default function Home() {
                 alt="Ảnh nhà máy cũ"
                 width={500}
                 height={500}
-                className="rounded-xl shadow-2xl object-cover"
+                className="rounded-full shadow-2xl object-cover"
               />
               <p className="mt-2 text-sm text-center text-[color:var(--charcoal)] font-medium">
-                Nhà máy thời công nghiệp - Nơi khai sinh giá trị thặng dư
+                Lưu thông trong tư bản
               </p>
             </div>
           </div>
@@ -400,7 +403,7 @@ export default function Home() {
             <li><b>Tại sao sức lao động trở thành hàng hóa?</b>
               <ul className="list-[circle] pl-6 mt-1 text-base">
                 <li>Người lao động tự do về thân thể.</li>
-                <li>Người lao động không có tư liệu sản xuất để tự làm ra sản phẩm (không có máy chủ, không có bản quyền phần mềm, không có công ty để phân phối sản phẩm phần mềm của riêng mình...).</li>
+                <li>Người lao động không có tư liệu sản xuất để tự làm ra sản phẩm không có máy chủ "không có bản quyền phần mềm, không có công ty để phân phối sản phẩm phần mềm của riêng mình".</li>
               </ul>
             </li>
             <li><b>Thuộc tính đặc biệt của hàng hóa Sức lao động:</b>
@@ -464,25 +467,21 @@ export default function Home() {
         {/* Bảng phân tích giá trị sản phẩm */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-[color:var(--charcoal)] flex flex-col items-center">
-            <span className="text-3xl mb-2">💻</span>
             <div className="font-bold text-[color:var(--charcoal)]">Tư bản bất biến (c)</div>
             <div className="text-xl font-bold text-[color:var(--brown)]">850.000 VNĐ</div>
             <div className="text-xs text-[color:var(--grey)] mt-1">Thiết bị, phần mềm, chi phí văn phòng</div>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-[color:var(--gold)] flex flex-col items-center">
-            <span className="text-3xl mb-2">👨‍💻</span>
             <div className="font-bold text-[color:var(--charcoal)]">Giá trị sức lao động (v)</div>
             <div className="text-xl font-bold text-[color:var(--gold)]">1.000.000 VNĐ</div>
             <div className="text-xs text-[color:var(--grey)] mt-1">Tiền lương (4h tất yếu)</div>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-[color:var(--brown)] flex flex-col items-center">
-            <span className="text-3xl mb-2">💰</span>
             <div className="font-bold text-[color:var(--charcoal)]">Giá trị thặng dư (m)</div>
             <div className="text-xl font-bold text-[color:var(--brown)]">1.000.000 VNĐ</div>
             <div className="text-xs text-[color:var(--grey)] mt-1">Tạo ra trong 4h thặng dư</div>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-[color:var(--gold)] flex flex-col items-center">
-            <span className="text-3xl mb-2">📦</span>
             <div className="font-bold text-[color:var(--charcoal)]">Tổng giá trị sản phẩm</div>
             <div className="text-xl font-bold text-[color:var(--gold)]">2.850.000 VNĐ</div>
             <div className="text-xs text-[color:var(--grey)] mt-1">c + v + m</div>
@@ -501,11 +500,140 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Nature of Surplus Value Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.35 }}
+        viewport={{ once: true, amount: 0.2 }}
+        id="nature-surplus-value"
+        className="max-w-5xl mx-auto py-16 px-4"
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[color:var(--brown)] mb-6">
+            Bản chất của Giá trị thặng dư
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-lg shadow-lg">
+              <blockquote className="text-lg text-[color:var(--charcoal)] italic leading-relaxed">
+                Giá trị thặng dư là kết quả của sự hao phí sức lao động, và nó thể hiện quan hệ bóc lột của nhà tư bản đối với người lao động làm thuê.
+              </blockquote>
+              <div className="text-right mt-4">
+                <span className="text-sm font-semibold text-[color:var(--brown)]">- C. Mác</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-8">
+          {/* Bên trái - Phân tích bản chất */}
+            <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[color:var(--brown)]">
+              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
+                Bản chất kinh tế
+              </h3>
+              <ul className="space-y-3 text-[color:var(--charcoal)]">
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Là kết quả của <strong>sự hao phí sức lao động</strong> không được trả công</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Được tạo ra trong <strong>quá trình sản xuất</strong>, không phải trong lưu thông</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Là <strong>phần giá trị mới</strong> vượt quá giá trị sức lao động</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-red-500">
+              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
+                Bản chất xã hội
+              </h3>
+              <ul className="space-y-3 text-[color:var(--charcoal)]">
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Thể hiện <strong>quan hệ bóc lột</strong> của nhà tư bản đối với người lao động</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Phản ánh <strong>mâu thuẫn giai cấp</strong> trong xã hội tư bản</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Là cơ sở của <strong>sự bất bình đẳng</strong> về thu nhập và tài sản</span>
+                </li>
+              </ul>
+            </div>
+
+          {/* Bên phải - Minh họa và ví dụ */}
+          {/* <div className="space-y-6">
+            <div className="bg-gradient-to-br from-[color:var(--gold)]/20 to-yellow-100 rounded-xl shadow-lg p-6">
+              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
+                Minh họa thực tế
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <h4 className="font-semibold text-[color:var(--brown)] mb-2">Ví dụ: Lập trình viên</h4>
+                  <div className="text-sm space-y-2">
+                    <div className="flex justify-between">
+                      <span>Lương nhận được:</span>
+                      <span className="font-bold text-[color:var(--gold)]">1.000.000 VNĐ</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Giá trị thực tạo ra:</span>
+                      <span className="font-bold text-[color:var(--brown)]">2.000.000 VNĐ</span>
+                    </div>
+                    <div className="border-t pt-2 flex justify-between font-bold">
+                      <span>Giá trị thặng dư:</span>
+                      <span className="text-red-600">1.000.000 VNĐ</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <h4 className="font-semibold text-[color:var(--brown)] mb-2">Tỷ lệ bóc lột</h4>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-red-600 mb-1">100%</div>
+                    <div className="text-xs text-gray-600">
+                      (Giá trị thặng dư / Giá trị sức lao động) × 100%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
+                Ý nghĩa lý luận
+              </h3>
+              <p className="text-[color:var(--charcoal)] text-sm leading-relaxed">
+                Quan điểm này của C. Mác cho thấy rằng giá trị thặng dư không phải là kết quả của sự may mắn hay tài năng kinh doanh, 
+                mà là kết quả tất yếu của quan hệ sản xuất tư bản chủ nghĩa, nơi người lao động bị buộc phải làm việc nhiều hơn 
+                thời gian cần thiết để tái sản xuất sức lao động của mình.
+              </p>
+            </div>
+          </div> */}
+        </div>
+
+        {/* Kết luận */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-[color:var(--brown)] to-[color:var(--gold)] text-white rounded-xl p-6 shadow-lg">
+            <h3 className="text-xl font-bold mb-3">Kết luận</h3>
+            <p className="text-lg leading-relaxed">
+              Giá trị thặng dư không chỉ là một khái niệm kinh tế thuần túy, mà còn là biểu hiện của 
+              <strong> quan hệ xã hội bất bình đẳng</strong> và <strong>cơ chế bóc lột</strong> trong nền kinh tế thị trường.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Question Answer Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
         viewport={{ once: true, amount: 0.2 }}
         id="question-answer"
         className="max-w-3xl mx-auto py-16 px-4 flex flex-col items-center text-center"
@@ -559,7 +687,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
         viewport={{ once: true, amount: 0.2 }}
         id="summary"
         className="max-w-6xl mx-auto py-16 px-4"
