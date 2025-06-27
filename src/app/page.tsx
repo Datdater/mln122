@@ -164,11 +164,6 @@ export default function Home() {
       title: 'Quá trình sản xuất'
     },
     
-    // Section 4: Nature of Surplus Value Section
-    {
-      id: 'nature-surplus-value',
-      title: 'Bản chất của giá trị thặng dư'
-    },
     
     // Section 5: Question Answer Section
     {
@@ -494,140 +489,32 @@ export default function Home() {
           </span>
         </div>
         {/* Mô tả ý nghĩa */}
-        <div className="text-center text-base text-[color:var(--charcoal)] max-w-2xl mx-auto mt-4 flex items-center justify-center gap-2">
-          <svg className="w-5 h-5 text-[color:var(--gold)]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
-          <span className="italic">Phần giá trị thặng dư này là nguồn gốc lợi nhuận của chủ doanh nghiệp, được tạo ra từ phần lao động không được trả công của lập trình viên.</span>
-        </div>
-      </motion.section>
-
-      {/* Nature of Surplus Value Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.35 }}
-        viewport={{ once: true, amount: 0.2 }}
-        id="nature-surplus-value"
-        className="max-w-5xl mx-auto py-16 px-4"
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[color:var(--brown)] mb-6">
-            Bản chất của Giá trị thặng dư
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-lg shadow-lg">
-              <blockquote className="text-lg text-[color:var(--charcoal)] italic leading-relaxed">
-                Giá trị thặng dư là kết quả của sự hao phí sức lao động, và nó thể hiện quan hệ bóc lột của nhà tư bản đối với người lao động làm thuê.
-              </blockquote>
-              <div className="text-right mt-4">
-                <span className="text-sm font-semibold text-[color:var(--brown)]">- C. Mác</span>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-8 rounded-2xl shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-bold text-[color:var(--brown)] text-lg mb-3">Kết luận quan trọng</h4>
+                <blockquote className="text-lg text-[color:var(--charcoal)] italic leading-relaxed mb-4">
+                  Giá trị thặng dư là bộ phận giá trị mới dôi ra ngoài giá trị sức lao động do công nhân tạo ra, là kết quả của lao động không công của công nhân cho nhà tư bản.
+                </blockquote>
+                {/* <div className="text-right">
+                  <span className="text-sm font-semibold text-[color:var(--brown)]">- C. Mác</span>
+                </div> */}
+                {/* <p className="text-[color:var(--charcoal)] mt-4 leading-relaxed">
+                  Phần giá trị thặng dư này là nguồn gốc lợi nhuận của chủ doanh nghiệp, được tạo ra từ phần lao động không được trả công của lập trình viên. 
+                  Điều này cho thấy bản chất của quan hệ sản xuất tư bản chủ nghĩa.
+                </p> */}
               </div>
             </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-2 gap-8">
-          {/* Bên trái - Phân tích bản chất */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-[color:var(--brown)]">
-              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
-                Bản chất kinh tế
-              </h3>
-              <ul className="space-y-3 text-[color:var(--charcoal)]">
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Là kết quả của <strong>sự hao phí sức lao động</strong> không được trả công</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Được tạo ra trong <strong>quá trình sản xuất</strong>, không phải trong lưu thông</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-[color:var(--gold)] rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Là <strong>phần giá trị mới</strong> vượt quá giá trị sức lao động</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-red-500">
-              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
-                Bản chất xã hội
-              </h3>
-              <ul className="space-y-3 text-[color:var(--charcoal)]">
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Thể hiện <strong>quan hệ bóc lột</strong> của nhà tư bản đối với người lao động</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Phản ánh <strong>mâu thuẫn giai cấp</strong> trong xã hội tư bản</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Là cơ sở của <strong>sự bất bình đẳng</strong> về thu nhập và tài sản</span>
-                </li>
-              </ul>
-            </div>
-
-          {/* Bên phải - Minh họa và ví dụ */}
-          {/* <div className="space-y-6">
-            <div className="bg-gradient-to-br from-[color:var(--gold)]/20 to-yellow-100 rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
-                Minh họa thực tế
-              </h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <h4 className="font-semibold text-[color:var(--brown)] mb-2">Ví dụ: Lập trình viên</h4>
-                  <div className="text-sm space-y-2">
-                    <div className="flex justify-between">
-                      <span>Lương nhận được:</span>
-                      <span className="font-bold text-[color:var(--gold)]">1.000.000 VNĐ</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Giá trị thực tạo ra:</span>
-                      <span className="font-bold text-[color:var(--brown)]">2.000.000 VNĐ</span>
-                    </div>
-                    <div className="border-t pt-2 flex justify-between font-bold">
-                      <span>Giá trị thặng dư:</span>
-                      <span className="text-red-600">1.000.000 VNĐ</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <h4 className="font-semibold text-[color:var(--brown)] mb-2">Tỷ lệ bóc lột</h4>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-red-600 mb-1">100%</div>
-                    <div className="text-xs text-gray-600">
-                      (Giá trị thặng dư / Giá trị sức lao động) × 100%
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
-              <h3 className="text-xl font-bold text-[color:var(--brown)] mb-4 flex items-center gap-2">
-                Ý nghĩa lý luận
-              </h3>
-              <p className="text-[color:var(--charcoal)] text-sm leading-relaxed">
-                Quan điểm này của C. Mác cho thấy rằng giá trị thặng dư không phải là kết quả của sự may mắn hay tài năng kinh doanh, 
-                mà là kết quả tất yếu của quan hệ sản xuất tư bản chủ nghĩa, nơi người lao động bị buộc phải làm việc nhiều hơn 
-                thời gian cần thiết để tái sản xuất sức lao động của mình.
-              </p>
-            </div>
-          </div> */}
-        </div>
-
-        {/* Kết luận */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-[color:var(--brown)] to-[color:var(--gold)] text-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold mb-3">Kết luận</h3>
-            <p className="text-lg leading-relaxed">
-              Giá trị thặng dư không chỉ là một khái niệm kinh tế thuần túy, mà còn là biểu hiện của 
-              <strong> quan hệ xã hội bất bình đẳng</strong> và <strong>cơ chế bóc lột</strong> trong nền kinh tế thị trường.
-            </p>
-          </div>
-        </div>
       </motion.section>
+
 
       {/* Question Answer Section */}
       <motion.section
