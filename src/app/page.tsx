@@ -592,10 +592,10 @@ export default function Home() {
           <HTMLFlipBook
             showPageCorners={true}
             disableFlipByClick={false}
-            width={700}
+            width={600}
             height={900}
             size="fixed"
-            minWidth={600}
+            minWidth={500}
             maxWidth={1000}
             minHeight={900}
             maxHeight={1200}
